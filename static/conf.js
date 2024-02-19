@@ -1,3 +1,0 @@
-window.appConf = {
-    conf: 'adsad'
-}

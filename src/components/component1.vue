@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="c1">
       动态组件1{{count}}
       <div @click="add">按钮</div>
   </div>
@@ -14,5 +14,4 @@ function add():void {
 }
 
 </script>
-<style lang="scss" scoped>
-</style>
+<style lang="scss" scoped></style>
