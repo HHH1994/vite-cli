@@ -1,5 +1,6 @@
 <template>
   <div ref="wrap">
+    <slot v-if="!isShowComp" name="skelton"></slot>
     <slot v-if="!isShowComp" name="loading">加载中</slot>
     <slot v-else></slot>
   </div>
@@ -16,8 +17,8 @@ const props = defineProps({
         }
     },
     threshold: {
-        type: Number,
-        default: 1
+        type: [Number, Array],
+        default: 0.6
     }
 })
 
@@ -25,9 +26,16 @@ const initObsever = () => {
     return new IntersectionObserver((entries, observer) => {
         console.log(entries[0])
         entries.forEach(el => {
-            if (el.intersectionRatio > 0) {
-                isShowComp.value = true;
-                observer.disconnect();
+            if (props.threshold instanceof Array) {
+                setTimeout(() => {
+                    isShowComp.value = true;
+                    observer.disconnect();
+                }, 5000);
+            } else if (el.intersectionRatio >= props.threshold) {
+                setTimeout(() => {
+                    isShowComp.value = true;
+                    observer.disconnect();
+                }, 5000);
             }
         })
     }, {
@@ -37,11 +45,13 @@ const initObsever = () => {
 }
 let observer = initObsever();
 
-watch(() => props.root, () => {
-    observer.disconnect();
-    observer = initObsever();
-    observer.observe(wrap.value)
-})
+
+// case 1
+// watch(() => props.root, () => {
+//     observer.disconnect();
+//     observer = initObsever();
+//     observer.observe(wrap.value)
+// })
 
 
 onMounted(() => {
