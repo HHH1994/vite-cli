@@ -33,8 +33,8 @@ export default {
     plugins: [
         YSSplitChunkPlugin({
             vendorSplitting: {
-                'vue-vendor': ['/vue/', '/vue-router/', '/@vue/'],
-                'element-ui': ['/element-plus/','/@element-plus/']
+                'element-ui': ['/element-plus/','/@element-plus/'],
+                'vue-vendor': ['/vue/', '/vue-router/', '/@vue/']
             },
             customSplitting: {
                 'use-effect': ['/src/useEffect/']

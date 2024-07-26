@@ -1,7 +1,7 @@
 <template>
   <div class="c1">
       动态组件1{{count}}
-      <div @click="add">按钮</div>
+      <el-button @click="add">按钮</el-button>
   </div>
 </template>
 <script lang="tsx" setup>
@@ -14,4 +14,8 @@ function add():void {
 }
 
 </script>
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+  .c1 {
+    color: $blue;
+  }
+</style>
