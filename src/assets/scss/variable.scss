@@ -1,1 +1,45 @@
-$blue: #0080ff;
+@forward "element-plus/theme-chalk/src/common/var.scss" with (
+  $colors: (
+    "primary": (
+      "base": #0080ff,
+    ),
+    "success": (
+      "base": #2da641,
+    ),
+    "warning": (
+      "base": #ff8a00,
+    ),
+    "danger": (
+      "base": #ff0000,
+    ),
+  )
+);
+
+$inblock: inline-block;
+$block: block;
+$vt: top;
+$vm: middle;
+$txtc: center;
+$txtl: left;
+$txtr: right;
+$font: 13px;
+$f18: 18px;
+$f16: 16px;
+$f14: 14px;
+$f13: 13px;
+$f12: 12px;
+$f10: 10px;
+$f20: 20px;
+$regular: 400;
+$medium: 500;
+$semibold: 600;
+$bold: 700;
+$color-black85: rgba(0, 0, 0, 0.85);
+$color-black65: rgba(0, 0, 0, 0.65);
+$color-black45: rgba(0, 0, 0, 0.45);
+$color-black25: rgba(0, 0, 0, 0.25);
+$color-black15: rgba(0, 0, 0, 0.15);
+$color-black10: rgba(0, 0, 0, 0.1);
+$color-black: rgba(0, 0, 0, 1);
+$color-white: #fff;
+$color-light: #999;

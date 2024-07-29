@@ -32,6 +32,9 @@ function changeType(type) {
 </script>
 
 <style lang="scss" scoped>
+.wrap {
+  background: #fff;
+}
 div {
   p {
     color: green;

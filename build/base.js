@@ -15,8 +15,7 @@ export default {
     css: {
         preprocessorOptions: {
             scss: {
-                // additionalData: '@import "@/assets/scss/variable.scss";' // 设置sass变量
-                additionalData: '@use "@/assets/scss/variable.scss" as *;' // 设置sass变量
+                additionalData: '@use "@/assets/scss/variable.scss" as *;@use "@/assets/scss/mixin.scss" as *;' // 设置sass变量
             }
         }
     },

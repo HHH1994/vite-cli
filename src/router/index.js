@@ -8,11 +8,17 @@ Object.keys(pages).forEach(key => {
     const route = {
         path: `/${routeName}`,
         name: routeName,
-        component: pages[key]
+        component: () => import('@/components/layout/index.vue'),
+        children: [
+            {
+                path: '',
+                component: pages[key]
+            }
+        ]
     };
 
     if (routeName === 'demo') {
-        route.children = [
+        route.children[0].children = [
             {
                 path: 'a',
                 name: 'a',

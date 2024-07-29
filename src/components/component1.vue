@@ -16,6 +16,6 @@ function add():void {
 </script>
 <style lang="scss" scoped>
   .c1 {
-    color: $blue;
+    color: $color-primary;
   }
 </style>

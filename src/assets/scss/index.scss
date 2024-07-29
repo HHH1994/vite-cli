@@ -1,6 +1,3 @@
-@import "@/assets/scss/app.scss";
-
-img {
-  width: 100px;
-  height: 100px;
-}
+@use "./reset.scss" as *;
+@use "./base.scss" as *;
+@use "./mixin.scss" as *;

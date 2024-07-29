@@ -1,0 +1,22 @@
+html,
+body {
+  width: 100%;
+  height: 100%;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  font-size: 14px;
+  box-sizing: border-box;
+  font-family: apple-system, SF UI Text, Arial, PingFang SC, Roboto, Tahoma,
+    Microsoft YaHei, SimHei, SimSun;
+}
+
+#app {
+  width: 100%;
+  height: 100%;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
