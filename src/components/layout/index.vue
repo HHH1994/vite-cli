@@ -35,6 +35,7 @@ import sidebar from './sidebar.vue';
         flex: 1;
         display: flex;
         width: 100%;
+        height: 0;
 
         &-main {
             width: 100%;

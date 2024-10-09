@@ -5,7 +5,7 @@
     :style="{ width: sideBarWidth }"
   >
     <el-menu
-      default-active="/demo"
+      :default-active="defaultMenu"
       class="h-menu"
       :collapse="isCollapse"
       :collapse-transition="false"
@@ -40,12 +40,16 @@ const emit = defineEmits(["collapse"]);
 const isCollapse = ref(false);
 const isShowExpandText = ref(true);
 const sideBarWidth = ref("160px");
+const defaultMenu = ref('');
 
 const pages = import.meta.glob("@/page/*.*");
 const menuList = reactive([]);
-Object.keys(pages).forEach((key) => {
+Object.keys(pages).forEach((key, idx) => {
   const fileName = key.split("/").pop();
   const routeName = fileName.split(".")[0];
+  if(idx === 0) {
+    defaultMenu.value = `/${routeName}`;
+  }
   menuList.push({
     menuName: routeName,
     href: `/${routeName}`,
