@@ -3,11 +3,11 @@
     <p class="place">向下滚动</p>
     <!-- case 1 -->
     <lazyComponent :root="pwrap">
-        <test1></test1>
+        <lazyLoadDisplayCom></lazyLoadDisplayCom>
     </lazyComponent>
     <!-- case 2 -->
     <lazyComponent v-if="isShow" :root="pwrap">
-        <test1></test1>
+        <lazyLoadDisplayCom></lazyLoadDisplayCom>
         <template  #skelton>
             <div class="skelton-content">骨架屏内容</div>
         </template>
@@ -16,9 +16,9 @@
 </template>
 <script setup>
 import lazyComponent from '@/components/intersectionObsever.vue';
-import {defineAsyncComponent, onMounted, ref} from 'vue';
+import {defineAsyncComponent} from 'vue';
 
-const test1 = defineAsyncComponent(() => import('@/components/test1.vue'));
+const lazyLoadDisplayCom = defineAsyncComponent(() => import('@/components/lazyLoadDisplayCom.vue'));
 
 const pwrap = ref(null);
 
