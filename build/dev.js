@@ -7,7 +7,7 @@ export default {
     },
     server: {
         host: '0.0.0.0',
-        port: 8100,
+        port: 9000,
         open: true,
         proxy: proxyConf
     }

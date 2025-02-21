@@ -1,0 +1,17 @@
+{
+  "globals": {
+    "onBeforeRouteLeave": true,
+    "onBeforeRouteUpdate": true,
+    "reactive": true,
+    "ref": true,
+    "useLink": true,
+    "useRoute": true,
+    "useRouter": true,
+    "defineEmit": true,
+    "defineModel": true,
+    "defineProps": true,
+    "getCurrentInstance": true,
+    "onMounted": true,
+    "watch": true
+  }
+}

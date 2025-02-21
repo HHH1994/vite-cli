@@ -1,5 +1,6 @@
 import vue from '@vitejs/plugin-vue'
 import vueJSX from '@vitejs/plugin-vue-jsx'
+import unpluginAutoImport from 'unplugin-auto-import/vite';
 import path from 'path';
 
 export default {
@@ -21,6 +22,27 @@ export default {
     },
     plugins: [
         vue(), 
-        vueJSX()
+        vueJSX(),
+        unpluginAutoImport({
+            include: [],
+            imports: [
+               {
+                'vue':  [
+                    'reactive',
+                    'ref',
+                    'watch',
+                    'defineProps',
+                    'defineEmit',
+                    'defineModel',
+                    'getCurrentInstance',
+                    'onMounted'
+                ]
+               },
+                'vue-router'
+            ],
+            eslintrc: {
+               enabled: true, 
+            },
+        })
     ]
 }
