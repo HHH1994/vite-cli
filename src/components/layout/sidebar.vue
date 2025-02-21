@@ -33,8 +33,9 @@
   </div>
 </template>
 <script setup>
-import { ref, reactive } from "vue";
+import { ref, reactive, watch } from "vue";
 import router from "@/router/index";
+import { useRouter } from "vue-router";
 
 const emit = defineEmits(["collapse"]);
 const isCollapse = ref(false);
@@ -55,6 +56,16 @@ Object.keys(pages).forEach((key, idx) => {
     href: `/${routeName}`,
   });
 });
+
+const {currentRoute} = useRouter();
+watch(() => currentRoute.value, () => {
+  const {path} = currentRoute.value;
+  if (path !== defaultMenu.value) {
+    defaultMenu.value = path;
+  }
+}, {
+  immediate: true
+})
 
 const handlerSelect = (key, keyPath) => {
   console.log(key, keyPath);
