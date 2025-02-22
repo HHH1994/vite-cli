@@ -30,9 +30,12 @@ const viewContainerH = ref(0);
 
 const visualWarpper = ref();
 
-const changeScrollList = () => {
+const changeScrollList = (scrollTopVal) => {
     const max = Math.ceil(viewContainerH.value / 80);
-    const start = Math.floor(scrollTop.value / 80);
+    const start  = Math.floor(scrollTopVal / 80);
+    // 保证scrollList始终置顶
+    scrollTop.value = scrollTopVal
+    changeScrollList.start = start;
     scrollList.splice(0, max, ...originData.slice(start, start + max))
 }
 
@@ -43,8 +46,7 @@ const scrollHandler = function(){
    }
 
    scrollHandler.timer = setTimeout(() => {
-    scrollTop.value = this.scrollTop;
-    changeScrollList()
+    changeScrollList(this.scrollTop);
    }, 0)
 }
 
@@ -55,7 +57,7 @@ onMounted(() => {
     const visualWarpperDom = visualWarpper.value;
     viewContainerH.value = visualWarpperDom.offsetHeight;
 
-    changeScrollList()
+    changeScrollList(0)
     visualWarpperDom.addEventListener('scroll', scrollHandler)
 })
 
