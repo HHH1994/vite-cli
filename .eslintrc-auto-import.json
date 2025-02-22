@@ -12,6 +12,7 @@
     "defineProps": true,
     "getCurrentInstance": true,
     "onMounted": true,
-    "watch": true
+    "watch": true,
+    "computed": true
   }
 }

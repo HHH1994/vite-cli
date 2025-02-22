@@ -30,6 +30,7 @@ export default {
                 'vue':  [
                     'reactive',
                     'ref',
+                    'computed',
                     'watch',
                     'defineProps',
                     'defineEmit',
