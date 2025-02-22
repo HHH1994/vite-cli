@@ -24,7 +24,7 @@
                                 alt
                             />
                             <div class="user-info-text">
-                                <span class="user-name">管理员</span>
+                                <span class="user-name">{{userNameComputed}}</span>
                             </div>
                         </div>
                     </el-dropdown-item>
@@ -34,6 +34,10 @@
                             <div class="system-item">
                                 <i class="icon iconfont iconxitongshezhi"></i>
                                 <span class="label">系统设置</span>
+                            </div>
+                            <div class="system-item" @click="changeUserName">
+                                <i class="icon iconfont iconxitongshezhi"></i>
+                                <span class="label">改变名称</span>
                             </div>
                             <div class="system-item" @click="logout">
                                 <i class="icon iconfont icontuichudenglu1"></i>
@@ -48,6 +52,30 @@
   </div>
 </template>
 <script setup>
+import {useUserStore} from '@/store/userInfo';
+import { mapActions, storeToRefs } from 'pinia';
+import { toRefs } from 'vue';
+
+const userStore= useUserStore();
+
+// userStore返回的是reactive，storeToRefs会将state中的属性变为ref，类似于toRefs
+const {userName} = storeToRefs(userStore)
+// const {userName} = toRefs(userStore);
+console.log(storeToRefs(userStore), toRefs(userStore))
+
+// const changeUserName = () => {
+//   // case 1 directly change state
+//   // userStore.userName = '123'
+
+//   // case 2  change action
+//   userStore.changeName()
+// }
+
+const {changeUserName} = mapActions(useUserStore, {changeUserName: 'changeName'})
+const userNameComputed = computed(() => {
+  return userName;
+})
+
 </script>
 <style lang="scss" scoped>
 .h-navbar {
