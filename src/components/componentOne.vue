@@ -1,13 +1,15 @@
 <template>
   <div class="c1">
-      动态组件1{{count}}
-      <el-button @click="add">按钮</el-button>
+    动态组件1{{ count }}
+    <el-button @click="add">
+      按钮
+    </el-button>
   </div>
 </template>
 <script lang="tsx" setup>
-import {Ref, ref, getCurrentInstance} from 'vue';
 
-const count:Ref = ref(0);
+
+const count:Ref<number> = ref<number>(0);
 console.log(getCurrentInstance())
 function add():void {
   count.value++;

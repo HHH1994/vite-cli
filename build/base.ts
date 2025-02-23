@@ -1,7 +1,7 @@
 import vue from '@vitejs/plugin-vue'
 import vueJSX from '@vitejs/plugin-vue-jsx'
 import unpluginAutoImport from 'unplugin-auto-import/vite';
-import path from 'path';
+import path from 'node:path';
 
 export default {
     base: '/',
@@ -32,6 +32,7 @@ export default {
                     'ref',
                     'computed',
                     'watch',
+                    'watchEffect',
                     'defineProps',
                     'defineEmit',
                     'defineModel',
@@ -39,7 +40,22 @@ export default {
                     'onMounted'
                 ]
                },
-                'vue-router'
+                'vue-router',
+                {
+                    from: 'pinia',
+                    imports: ['StoreDefinition'],
+                    type: true
+                },
+                {
+                    from: 'vue',
+                    imports: ['Ref', 'Reactive'],
+                    type: true,
+                   },
+                {
+                    from: 'vue-router',
+                    imports: ['RouteComponent', 'RouteRecordRaw'],
+                    type: true,
+                },
             ],
             eslintrc: {
                enabled: true, 

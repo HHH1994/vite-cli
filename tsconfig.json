@@ -1,0 +1,28 @@
+{
+  "compilerOptions": {
+    "target": "esnext", // 编译目标为最新的 ES 标准
+    "module": "esnext", // 使用 ES 模块
+    "moduleResolution": "node", // 模块解析方式
+    "strict": true, // 启用严格类型检查
+    "jsx": "preserve", // 保留 JSX 语法
+    "sourceMap": true, // 生成 source map
+    "esModuleInterop": true, // 支持 CommonJS 模块的默认导入
+    "skipLibCheck": true, // 跳过库文件的类型检查
+    "forceConsistentCasingInFileNames": true, // 强制文件名大小写一致
+    "resolveJsonModule": true, // 支持导入 JSON 模块
+    "isolatedModules": true, //
+    "baseUrl": ".", // 解析非相对模块的基础路径
+    "paths": {
+      "@/*": ["src/*"] // 路径别名
+    },
+    "lib": ["esnext", "dom", "dom.iterable", "scripthost"],
+    "typeRoots": ["node_modules/@types"],
+    "types": ["vite/client", "node"] // 包含 Vite 的类型定义、nodejs、vue
+  },
+  "include": ["src/**/*.ts", "*.d.ts", "src/**/*.tsx", "src/**/*.vue"], // 包含的文件
+  "exclude": [
+    "dist",
+    "**/*.js",
+    "node_modules"
+  ] // 排除的文件
+}

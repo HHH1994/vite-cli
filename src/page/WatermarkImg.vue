@@ -1,20 +1,27 @@
 <!-- 添加水印 -->
 <template>
-    <div>
-        <input type="file" @change="chooseFile">
-        <section class="show-area">
-            <div class="preview">
-                <img :src="file" alt="">
-            </div>
-            <div class="watermark-preview">
-                <img :src="waterMarkFile" alt="">
-            </div>
-        </section>
-    </div>
+  <div>
+    <input
+      type="file"
+      @change="chooseFile"
+    >
+    <section class="show-area">
+      <div class="preview">
+        <img
+          :src="file"
+          alt=""
+        >
+      </div>
+      <div class="watermark-preview">
+        <img
+          :src="waterMarkFile"
+          alt=""
+        >
+      </div>
+    </section>
+  </div>
 </template>
 <script setup>
-import {ref} from 'vue';
-
 const file = ref();
 const waterMarkFile = ref();
 

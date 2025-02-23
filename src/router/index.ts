@@ -1,11 +1,11 @@
 import {createRouter, createWebHistory} from 'vue-router';
 
 const pages = import.meta.glob('@/page/*.*');
-const routeList = [];
+const routeList: Array<RouteRecordRaw> = [];
 Object.keys(pages).forEach(key => {
-    const fileName = key.split('/').pop();
+    const fileName:string = key.split('/').pop()!;
     const routeName = fileName.split('.')[0];
-    const route = {
+    const route:RouteRecordRaw = {
         path: `/${routeName}`,
         name: routeName,
         component: () => import('@/components/layout/index.vue'),
@@ -22,7 +22,7 @@ Object.keys(pages).forEach(key => {
             {
                 path: 'a',
                 name: 'a',
-                component: () => import('@/components/component1.vue'),
+                component: () => import('@/components/componentOne.vue'),
             },
             {
                 path: 'b',

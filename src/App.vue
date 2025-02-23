@@ -1,6 +1,6 @@
 <template>
   <router-view></router-view>
 </template>
-<script lang="jsx" setup></script>
+<script lang="ts" setup></script>
 
 <style lang="scss" scoped></style>
